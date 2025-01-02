@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    /* width: 100%; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.square {
+    /* flex: 1; */
+    border: dotted .1px gray;
+    width: 10px;
+    height: 10px;
+    /* width: 20px; */
+    /* height: 20px;     */    
+}
+
