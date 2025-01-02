@@ -1,10 +1,13 @@
 var grid = document.querySelector("#grid")
+var gridSize = 960
+var squareSize = 16
 
-buildGrid(16, 16);
+buildGrid(squareSize, squareSize);
 
 function buildGrid(height, width) {
-    //clear the current grid
     grid.innerHTML = '';
+    grid.style.height = `${gridSize}px`
+    grid.style.width = `${gridSize}px`
 
     //add rows of squares
     for (let i = 0; i < height; i++) {
@@ -14,10 +17,9 @@ function buildGrid(height, width) {
         for (let i = 0; i < width; i++) {
             let square = document.createElement("div")
             square.classList.add('square')
-            square.attributes.height = 5
-            square.attributes.width = 5
+            square.style.height = `${gridSize/height}px`
+            square.style.width = `${gridSize/width}px`        
             square.addEventListener("mouseover", (event) => {
-                console.log('mouseover')
                 event.target.style.backgroundColor = 'black'
             })
             row.appendChild(square)
@@ -26,6 +28,6 @@ function buildGrid(height, width) {
 }
 
 function resize() {
-    let size = prompt("enter new size")
-    buildGrid(size, size);
+    let squareSize = Math.min(prompt("enter new size (max 100)"), 100)
+    buildGrid(squareSize, squareSize);
 }
