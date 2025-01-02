@@ -20,11 +20,19 @@ function buildGrid(height, width) {
             square.style.height = `${gridSize/height}px`
             square.style.width = `${gridSize/width}px`        
             square.addEventListener("mouseover", (event) => {
-                event.target.style.backgroundColor = 'black'
+                event.target.style.backgroundColor = getRandomRGB()
             })
             row.appendChild(square)
         }
     }
+}
+
+function getRandomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+  
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 function resize() {
